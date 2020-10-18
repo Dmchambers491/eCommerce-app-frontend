@@ -23,9 +23,11 @@ class App extends Component {
 render() {
   const webpage = this.state.page;
   return (
-    <div className="App">
+    <div>
       <MyNavBar changePage = {this.changePage}/>
-      <PageContent page = {webpage}/>
+      <div className="container">
+        <PageContent page = {webpage}/>
+      </div>
     </div>
   );
 }

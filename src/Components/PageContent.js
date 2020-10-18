@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Home from './Home';
+import Register from './Register';
+import Contact from './Contact';
+import Login from './Login';
 
 
 class PageContent extends Component {
@@ -8,10 +11,12 @@ class PageContent extends Component {
     switch (page) {
       case 'home':
         return <Home />;
+      case 'register':
+        return <Register />;
+      case 'contact':
+        return <Contact />;
       case 'login':
-        return ;
-      case 'restaurant':
-        return ;
+        return <Login />;
       default:
         return <Home />;
     }

@@ -1,3 +1,13 @@
+.navbar-nav{
+  margin-left: 450px;
+  font-style: italic;
+  font-family: 'Sansita Swashed', cursive;
+}
+
+.form-control{
+  width: 50% !important;
+}
+
 .App {
   text-align: center;
 }

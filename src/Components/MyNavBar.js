@@ -27,6 +27,15 @@ class MyNavBar extends Component {
               <li className="nav-item active">
                 <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'home')}>Home <span className="sr-only">(current)</span></a>
               </li>
+              <li className="nav-item active">
+                <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'contact')}>Contact</a>
+              </li>
+              <li className="nav-item active">
+                <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'register')}>Register</a>
+              </li>
+              <li className="nav-item active">
+                <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'login')}>Login</a>
+              </li>
             </ul>
           </div>
         </nav>
