@@ -36,15 +36,8 @@ const Login = (props) => {
               console.log(user.data);
               alert('Login Successful!!');
               //change page here/check role of user
-              if(user.data.role == "USER"){
-                  console.log("User");
-                  props.changePage('/home');
-                  props.setLogin(user.data.email);
-              }else if(user.data.role == "ADMIN"){
-                  console.log("Admin");
-                  props.changePage('/home');
-                  props.setLogin(user.data.email);
-              }
+              props.changePage('/home');
+              props.setLogin(user.data.email, user.data.role);
           });
       } catch (error) {
           alert('Login Unsuccessful!!');

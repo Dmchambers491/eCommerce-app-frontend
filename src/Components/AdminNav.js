@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LoggedInNav extends Component {
+class AdminNav extends Component {
     constructor(props) {
         super(props);
         this.handleNavClick = this.handleNavClick.bind(this);
@@ -29,10 +29,10 @@ class LoggedInNav extends Component {
                     <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'contact')}>Contact</a>
                   </li>
                   <li className="nav-item active">
-                    <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'register')}>Register</a>
+                    <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'admin')}>Admin</a>
                   </li>
                   <li className="nav-item active">
-                    <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'login')}>Login</a>
+                    <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'logout')}>Logout</a>
                   </li>
                 </ul>
               </div>
@@ -42,4 +42,4 @@ class LoggedInNav extends Component {
       }
 }
 
-export default LoggedInNav;
+export default AdminNav;

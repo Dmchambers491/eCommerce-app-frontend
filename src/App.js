@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MyNavBar from "./Components/MyNavBar"
 import PageContent from "./Components/PageContent"
 import './App.css';
-import LoggedInNav from './Components/LoggedInNav';
+import UserNav from './Components/UserNav';
+import AdminNav from './Components/AdminNav';
 
 class App extends Component {
 
@@ -21,18 +22,20 @@ class App extends Component {
     this.setState({
       page: newPage
     });
-    console.log(newPage);
   }
 
-  setLogin(email) {
+  setLogin(email, role) {
     this.setState({
-      loggedIn: email
+      loggedIn: email,
+      role: role
     });
   }
 
   setActiveNav(){
-    if(this.state.loggedIn){
-      return <LoggedInNav changePage = {this.changePage}/>
+    if(this.state.loggedIn && this.state.role === "USER"){
+      return <UserNav changePage = {this.changePage}/>
+    }else if(this.state.loggedIn && this.state.role === "ADMIN"){
+      return <AdminNav changePage = {this.changePage}/>
     }else {
       return <MyNavBar changePage = {this.changePage}/>
     }
