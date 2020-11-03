@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MyNavBar from "./Components/MyNavBar"
 import PageContent from "./Components/PageContent"
 import './App.css';
+import LoggedInNav from './Components/LoggedInNav';
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
 
   setActiveNav(){
     if(this.state.loggedIn){
-      return <p>Hey</p>
+      return <LoggedInNav changePage = {this.changePage}/>
     }else {
       return <MyNavBar changePage = {this.changePage}/>
     }
