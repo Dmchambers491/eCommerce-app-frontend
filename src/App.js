@@ -12,21 +12,38 @@ class App extends Component {
     };
     // bind so you know you are calling the function that is in here.
     this.changePage = this.changePage.bind(this);
+    this.setLogin = this.setLogin.bind(this);
+    this.setActiveNav = this.setActiveNav.bind(this);
   }
 
   changePage(newPage) {
     this.setState({
       page: newPage
     });
+    console.log(newPage);
   }
-  
+
+  setLogin(email) {
+    this.setState({
+      loggedIn: email
+    });
+  }
+
+  setActiveNav(){
+    if(this.state.loggedIn){
+      return <p>Hey</p>
+    }else {
+      return <MyNavBar changePage = {this.changePage}/>
+    }
+  }
+
 render() {
   const webpage = this.state.page;
   return (
     <div>
-      <MyNavBar changePage = {this.changePage}/>
+      {this.setActiveNav()}
       <div className="container">
-        <PageContent page = {webpage}/>
+        <PageContent page = {webpage} changePage = {this.changePage} setLogin = {this.setLogin}/>
       </div>
     </div>
   );

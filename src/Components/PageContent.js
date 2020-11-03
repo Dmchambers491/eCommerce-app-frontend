@@ -16,7 +16,7 @@ class PageContent extends Component {
       case 'contact':
         return <Contact />;
       case 'login':
-        return <Login />;
+        return <Login changePage = {this.props.changePage} setLogin = {this.props.setLogin}/>;
       default:
         return <Home />;
     }
