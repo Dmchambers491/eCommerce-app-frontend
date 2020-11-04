@@ -2,20 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import { validateUser } from '../service/UserService';
 
-// const useStateWithLocalStorage = localStorageKey => {
-//   const [value, setValue] = React.useState(
-//       localStorage.getItem(localStorageKey) || {}
-//   );
-
-//   React.useEffect(() => {
-//       localStorage.setItem(localStorageKey, value);
-//   }, [value]);
-
-//   return [value, setValue];
-// };
-
 const Login = (props) => {
-//   const [data, setData] = useStateWithLocalStorage("currentUser");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,12 +19,10 @@ const Login = (props) => {
       event.preventDefault();
       try {
           await validateUser(email, password).then(user => {
-              // setData(user.data);
               console.log(user.data);
               alert('Login Successful!!');
-              //change page here/check role of user
               props.changePage('/home');
-              props.setLogin(user.data.email, user.data.role);
+              props.setLogin(user.data.email, user.data.role, user.data.id);
           });
       } catch (error) {
           alert('Login Unsuccessful!!');
@@ -47,7 +32,7 @@ const Login = (props) => {
 
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Login Form</h1>
         <form onSubmit={handleSubmit}>
             <div className="form-group">

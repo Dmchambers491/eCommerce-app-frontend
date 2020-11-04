@@ -19,9 +19,9 @@ class PageContent extends Component {
       case 'contact':
         return <Contact />;
       case 'user':
-        return <User />;
+        return <User email = {this.props.email} role = {this.props.role} id = {this.props.id}/>;
       case 'admin':
-        return <Admin />;
+        return <Admin email = {this.props.email} role = {this.props.role} id = {this.props.id}/>;
       case 'logout':
         return <Logout />;
       case 'login':

@@ -3,15 +3,12 @@ import axios from 'axios';
 
 // custom hook for performing GET request
 export const useFetch = (searchMethod, searchValue) => {
-  let param = 0;
 
-  if (searchValue !== undefined) param = searchValue;
-
-  const getById = 'http://localhost:8080/api/users/' + param;
+  const getAllUsers = 'http://localhost:8080/api/users/';
   let url = null;
 
   switch (searchMethod) {
-    case 'getById': url = getById;
+    case 'getAllUsers': url = getAllUsers;
       break;
     default: url = null;
   }
@@ -38,6 +35,14 @@ export const useFetch = (searchMethod, searchValue) => {
   return { loading, data };
 };
 
+export function createUser(user) {
+  return axios.post('http://localhost:8080/api/add/user', user);
+}
+
 export function validateUser(email, password) {
   return axios.get('http://localhost:8080/api/users/login/email/' + email + '/password/' + password);
+}
+
+export function deleteUser(userId) {
+  return axios.delete('http://localhost:8080/api/delete/user/' + userId);
 }

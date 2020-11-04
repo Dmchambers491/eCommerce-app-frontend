@@ -24,18 +24,19 @@ class App extends Component {
     });
   }
 
-  setLogin(email, role) {
+  setLogin(email, role, id) {
     this.setState({
       loggedIn: email,
-      role: role
+      role: role,
+      id: id
     });
   }
 
   setActiveNav(){
     if(this.state.loggedIn && this.state.role === "USER"){
-      return <UserNav changePage = {this.changePage}/>
+      return <UserNav changePage = {this.changePage} email = {this.state.loggedIn}/>
     }else if(this.state.loggedIn && this.state.role === "ADMIN"){
-      return <AdminNav changePage = {this.changePage}/>
+      return <AdminNav changePage = {this.changePage} email = {this.state.loggedIn}/>
     }else {
       return <MyNavBar changePage = {this.changePage}/>
     }
@@ -46,8 +47,8 @@ render() {
   return (
     <div>
       {this.setActiveNav()}
-      <div className="container">
-        <PageContent page = {webpage} changePage = {this.changePage} setLogin = {this.setLogin}/>
+      <div>
+        <PageContent page = {webpage} changePage = {this.changePage} setLogin = {this.setLogin} email = {this.state.loggedIn} role = {this.state.role} id = {this.state.id}/>
       </div>
     </div>
   );

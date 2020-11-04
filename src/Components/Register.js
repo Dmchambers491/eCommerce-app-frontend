@@ -4,7 +4,7 @@ import "../App.css";
 function Register() {
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Register Yourself</h1>
         <form action="/action_page.php">
             <div className="form-group">

@@ -35,6 +35,7 @@ class UserNav extends Component {
                     <a href="#" className="nav-link" onClick={(event) => this.handleNavClick(event, 'logout')}>Logout</a>
                   </li>
                 </ul>
+                <h6 className="">Welcome {this.props.email}!</h6>
               </div>
             </nav>
           </div>
